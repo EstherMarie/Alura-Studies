@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./Lista.module.scss";
+import Item from "./Item";
 
 interface Tarefa {
   tarefa: string;
@@ -29,11 +30,11 @@ export default function Lista() {
     <aside className={style.listaTarefas}>
       <h2>Estudos do dia</h2>
       <ul>
-        {tarefas.map(({ tarefa, tempo }, index) => (
-          <li key={index} className={style.item}>
-            <h3 className={style.tarefa}>{tarefa}</h3>
-            <span className={style.tempo}>{tempo}</span>
-          </li>
+        {tarefas.map((item, index) => (
+          <Item
+            key={index}
+            {...item}
+          />
         ))}
       </ul>
     </aside>
